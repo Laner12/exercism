@@ -1,4 +1,3 @@
-require 'pry'
 class Gigasecond
 
   def self.from(time)
