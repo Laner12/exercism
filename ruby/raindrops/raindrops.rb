@@ -1,4 +1,3 @@
-require "pry"
 class Raindrops
 
   def self.convert(number)
