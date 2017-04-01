@@ -2,42 +2,13 @@
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'hamming'
-require "pry"
+
 # Test data version:
-# d750c46 Merge branch 'master' of github.com:exercism/x-common into 240
+# deb225e Implement canonical dataset for scrabble-score problem (#255)
 
 class HammingTest < Minitest::Test
-  def test_it_has_an_instance_method
-    the_ham = Hamming.new
-
-    assert_equal :InstanceBaby, the_ham.compute_instance
-  end
-
-  def test_a_new_class_method
-    assert_equal ["class methods are bomb"], Hamming.bomb
-  end
-
-  def test_a_new_puts_method
-    assert_equal nil, Hamming.puts
-  end
-
-  def test_a_second_instance_method
-    little_ham = Hamming.new
-
-    little_ham.lunch[:Pizza] = "tasty"
-
-    assert_equal({ Pizza: "tasty" }, little_ham.lunch)
-  end
-
-  def test_that_the_lunch_starts_off_empty
-    ham = Hamming.new
-
-    assert_equal({}, ham.lunch)
-  end
-
   def test_identical_strands
-    skip
-
+    # skip
     assert_equal 0, Hamming.compute('A', 'A')
   end
 
@@ -111,16 +82,24 @@ class HammingTest < Minitest::Test
     assert_raises(ArgumentError) { Hamming.compute('ATA', 'AGTG') }
   end
 
-  # Problems in exercism evolve over time,
-  # as we find better ways to ask questions.
+  # Problems in exercism evolve over time, as we find better ways to ask
+  # questions.
   # The version number refers to the version of the problem you solved,
   # not your solution.
   #
-  # Define a constant named VERSION inside of Hamming.
+  # Define a constant named VERSION inside of the top level BookKeeping
+  # module.
+  #  In your file, it will look like this:
+  #
+  # module BookKeeping
+  #   VERSION = 1 # Where the version number matches the one in the test.
+  # end
+  #
   # If you are curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
+
   def test_bookkeeping
     skip
-    assert_equal 2, Hamming::VERSION
+    assert_equal 3, BookKeeping::VERSION
   end
 end
