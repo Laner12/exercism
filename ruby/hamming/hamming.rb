@@ -8,12 +8,8 @@ class Hamming
   end
 
   def self.compare_strands(primary_dna, secondary_dna)
-    hamming_distance = 0
-    primary_dna.chars.zip(secondary_dna.chars).each do |index|
-      if index[0] != index[1]
-        hamming_distance += 1
-      end
-    end
-    hamming_distance
+    primary_dna.chars.zip(secondary_dna.chars).select do |index|
+      index[0] != index[1]
+    end.count
   end
 end
