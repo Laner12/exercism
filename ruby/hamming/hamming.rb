@@ -1,15 +1,15 @@
 class Hamming
-  def self.compute(primary_dna, secondary_dna)
-    if primary_dna.length == secondary_dna.length
-      compare_strands(primary_dna, secondary_dna)
+  def self.compute(strand1, strand2)
+    if strand1.length == strand2.length
+      compare(strand1, strand2)
     else
       raise ArgumentError
     end
   end
 
-  def self.compare_strands(primary_dna, secondary_dna)
-    primary_dna.chars.zip(secondary_dna.chars).select do |index|
-      index[0] != index[1]
+  def self.compare(strand1, strand2)
+    strand1.chars.zip(strand2.chars).select do |n1, n2|
+      n1 != n2
     end.count
   end
 end
